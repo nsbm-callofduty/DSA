@@ -13,6 +13,10 @@ public class DSA_assignment {
 
     public void deleteNode(){
     }
+    
+    public void insertNode(){
+        
+    }
     /**
      * @param args the command line arguments
      */
