@@ -11,6 +11,8 @@ package dsa_assignment;
  */
 public class DSA_assignment {
 
+    public void deleteNode(){
+    }
     /**
      * @param args the command line arguments
      */
