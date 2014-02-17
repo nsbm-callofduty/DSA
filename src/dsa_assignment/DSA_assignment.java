@@ -11,6 +11,7 @@ package dsa_assignment;
  */
 public class DSA_assignment {
 
+    //Deleting node
     public void deleteNode(){
     }
     
