@@ -11,6 +11,8 @@ package dsa_assignment;
  */
 public class DSA_assignment {
 
+String name =null;
+int e = 0;
     //Deleting node
     public void deleteNode(){
     }
