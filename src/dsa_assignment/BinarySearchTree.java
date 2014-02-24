@@ -4,6 +4,8 @@ package dsa_assignment;
 public class BinarySearchTree {
          
         Node root;
+        String name= null;
+        int e = 0;
         
         public void add(int data){
             
