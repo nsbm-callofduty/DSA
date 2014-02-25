@@ -6,8 +6,8 @@ class Node {
     Node rightchild;
     int key;
     String b_name;
-    String f_Name;
-    Strng s_name;
+    String f_name;
+    String s_name;
     
     Node(int key1,String b1_name,String f1_name,String s1_name)
     {
