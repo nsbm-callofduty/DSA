@@ -1,4 +1,4 @@
-package BinaryTree;
+package dsa_assignment;
 
  
 public class BinarySearchTree {
