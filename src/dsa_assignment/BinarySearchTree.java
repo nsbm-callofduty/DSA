@@ -4,6 +4,15 @@ public class BinarySearchTree {
 
     Node root;
 
+    /**
+     *This method is used to add new node in to the tree.If the tree have No data
+     * then then first input is consider as the root of the tree.Then according 
+     * to the Key value Node will be place in LEFT or RIGHT side under parent Node
+     * @param key       Thirteen digits numbers and it is also the ISBN
+     * @param b_name    Name of the Book
+     * @param f_name    Author's First name
+     * @param s_name    Author's Surname
+     */
     public void addNode(int key, String b_name, String f_name, String s_name) {
 
         Node nodeToAdd = new Node(key, b_name, f_name, s_name);
@@ -13,7 +22,7 @@ public class BinarySearchTree {
         } else {
             Node focusNode = root;
             Node parent;
-
+ 
             while (true) {
                 parent = focusNode;
                 if (key < focusNode.key) {
@@ -37,6 +46,7 @@ public class BinarySearchTree {
             }
         }
     }
+    
 
     public static void main(String[] args) {
 
