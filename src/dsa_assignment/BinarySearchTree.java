@@ -50,7 +50,28 @@ public class BinarySearchTree {
         }
     }
 
-    
+    public Node getReplacementNode(Node replacedNode) {
+
+        Node replacementParent = replacedNode;
+        Node replacement = replacedNode;
+        Node tempNode = replacedNode.rightChild;
+        // While there are no more left children
+        while (tempNode != null) {
+            replacementParent = replacement;
+            replacement = tempNode;
+            tempNode = tempNode.leftChild;
+        }
+        // If the replacement isn't the right child
+        // move the replacement into the parents
+        // leftChild slot and move the replaced nodes
+        // right child into the replacements rightChild
+        if (replacement != replacedNode.rightChild) {
+            replacementParent.leftChild = replacement.rightChild;
+            replacement.rightChild = replacedNode.rightChild;
+        }
+        return replacement;
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTree theTree = new BinarySearchTree();
@@ -74,7 +95,6 @@ public class BinarySearchTree {
         theTree.addNode(3472479731436d, "Java Generics and Collections ", "Philip  ", "Wadler");
         theTree.addNode(7124428189487d, "Java In A Nutshell, 5th Edition ", "David  ", "Flanagan");
         theTree.addNode(1001001001001d, "Java", "Dinish ", "De Silva");
-
 
     }
 
