@@ -181,6 +181,28 @@ public class BinarySearchTree {
         return replacement;
     }
 
+    public Node searchByKey(int key) {
+
+        // Start at the top of the tree
+        Node focusNode = root;
+        // While we haven't found the Node
+        // keep looking
+        while (focusNode.key != key) {
+            // If we should search to the left
+            if (key < focusNode.key) {
+                // Shift the focus Node to the left child
+                focusNode = focusNode.leftChild;
+            } else {
+                // Shift the focus Node to the right child
+                focusNode = focusNode.rightChild;
+            }
+            // The node wasn't found
+            if (focusNode == null) {
+                return null;
+            }
+        }
+        return focusNode;
+    }
     public static void main(String[] args) {
 
         BinarySearchTree theTree = new BinarySearchTree();
