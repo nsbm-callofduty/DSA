@@ -54,7 +54,8 @@ public class BinarySearchTree {
      *Using the key it will delete the Node from the Tree
      * 
      * @param key ISBN will be the key
-     * @return
+     * @return if turn then Node is remove from the tree, if false then there is not 
+     * Node with that Key
      */
     public boolean deleteByKey(int key) {
         // Start at the top of the tree
