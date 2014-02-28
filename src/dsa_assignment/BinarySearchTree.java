@@ -51,11 +51,11 @@ public class BinarySearchTree {
     }
 
     /**
-     *Using the key it will delete the Node from the Tree
-     * 
+     * Using the key it will delete the Node from the Tree
+     *
      * @param key ISBN will be the key
-     * @return if turn then Node is remove from the tree, if false then there is not 
-     * Node with that Key
+     * @return if turn then Node is remove from the tree, if false then there is
+     * not Node with that Key
      */
     public boolean deleteByKey(int key) {
         // Start at the top of the tree
@@ -148,15 +148,15 @@ public class BinarySearchTree {
         }
         return true;
     }
-    
+
     private void deteleByBookName(String sales_Manager) {
-        
+
     }
-    
+
     /**
-     *When Deleting a Node have to replace the Node if there are child Node 
-     * 
-     * @param replacedNode Deleting Node 
+     * When Deleting a Node have to replace the Node if there are child Node
+     *
+     * @param replacedNode Deleting Node
      * @return
      */
     public Node getReplacementNode(Node replacedNode) {
@@ -203,6 +203,36 @@ public class BinarySearchTree {
         }
         return focusNode;
     }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public Node searchByBookName(String name) {
+        Node search = search(this.root, name);
+        return search;
+    }
+
+    /**
+     *
+     * @param focusNode
+     * @param nm
+     * @return NULL or Node object with data if the search is successful, either wise 
+     * it return NULL
+     */
+    private Node search(Node focusNode, String nm) {
+        Node s = null;
+        if (focusNode != null) {
+            if (nm.toLowerCase().matches(focusNode.b_name.toLowerCase())) {
+                return focusNode;
+            }
+            s = search(focusNode.leftChild, nm);
+            s = search(focusNode.rightChild, nm);
+        }
+        return s;
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTree theTree = new BinarySearchTree();
