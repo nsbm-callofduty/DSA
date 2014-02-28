@@ -142,6 +142,10 @@ public class BinarySearchTree {
         return true;
     }
     
+    private void deteleByBookName(String sales_Manager) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public Node getReplacementNode(Node replacedNode) {
 
         Node replacementParent = replacedNode;
