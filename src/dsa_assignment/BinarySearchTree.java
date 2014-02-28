@@ -150,7 +150,7 @@ public class BinarySearchTree {
     }
     
     private void deteleByBookName(String sales_Manager) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     /**
