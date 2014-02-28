@@ -154,8 +154,9 @@ public class BinarySearchTree {
     }
     
     /**
-     *
-     * @param replacedNode
+     *When Deleting a Node have to replace the Node if there are child Node 
+     * 
+     * @param replacedNode Deleting Node 
      * @return
      */
     public Node getReplacementNode(Node replacedNode) {
