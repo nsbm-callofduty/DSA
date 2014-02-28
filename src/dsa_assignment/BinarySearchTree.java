@@ -57,7 +57,7 @@ public class BinarySearchTree {
      * @return if turn then Node is remove from the tree, if false then there is
      * not Node with that Key
      */
-    public boolean deleteByKey(int key) {
+    public boolean deleteByKey(double key) {
         // Start at the top of the tree
         Node focusNode = root;
         Node parent = root;
@@ -149,8 +149,18 @@ public class BinarySearchTree {
         return true;
     }
 
-    private void deteleByBookName(String sales_Manager) {
-
+    /**
+     *
+     * @param bname 
+     * @return ture or false
+     */
+    public boolean deteleByBookName(String bname) {
+        Node searchByBookName = searchByBookName(bname);
+        if (searchByBookName != null) {
+            return deleteByKey(searchByBookName.key);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -181,7 +191,7 @@ public class BinarySearchTree {
         return replacement;
     }
 
-    public Node searchByKey(int key) {
+    public Node searchByKey(double key) {
 
         // Start at the top of the tree
         Node focusNode = root;
@@ -218,8 +228,8 @@ public class BinarySearchTree {
      *
      * @param focusNode
      * @param nm
-     * @return NULL or Node object with data if the search is successful, either wise 
-     * it return NULL
+     * @return NULL or Node object with data if the search is successful, either
+     * wise it return NULL
      */
     private Node search(Node focusNode, String nm) {
         Node s = null;
