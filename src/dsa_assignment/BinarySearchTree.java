@@ -153,6 +153,11 @@ public class BinarySearchTree {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    /**
+     *
+     * @param replacedNode
+     * @return
+     */
     public Node getReplacementNode(Node replacedNode) {
 
         Node replacementParent = replacedNode;
