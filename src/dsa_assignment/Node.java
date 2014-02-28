@@ -1,14 +1,14 @@
 package dsa_assignment;
 
 public class Node {
-    int key;
+    double key;
     String b_name;
     String f_name;
     String s_name;
     Node leftChild;
     Node rightChild;
 
-    public Node(int key, String b_name, String f_name, String s_name) {
+    public Node(double key, String b_name, String f_name, String s_name) {
         this.key = key;
         this.b_name = b_name;
         this.f_name = f_name;
@@ -17,6 +17,8 @@ public class Node {
 
     @Override
     public String toString() {
-        return "ISBN :" + key + "  Book :" + b_name + " by " + f_name + " " + s_name;
+        String k = String.valueOf(key);
+        k =k.substring(0, 14);
+        return "ISBN :" + k+ "  Book :" + b_name + " by " + f_name + " " + s_name;
     }
 }
