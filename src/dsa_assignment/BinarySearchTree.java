@@ -18,7 +18,7 @@ public class BinarySearchTree {
     public boolean addNode(double key, String b_name, String f_name, String s_name){
             
             Node nodeToAdd = new Node(key, b_name, f_name, s_name);
-            
+            //check whether the root is null
              if (root == null) {
             root = nodeToAdd;
         } else {
