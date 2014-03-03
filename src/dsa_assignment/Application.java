@@ -39,75 +39,111 @@ public class Application {
         String bnm;
         String fnm;
         String snm;
-        System.out.println("ISBN \n Eg: 1234567890123 \n ISBN have 13 digits");
-        System.out.println("Enter ISBN: ");
+        System.out.println("ISBN \nEg: 1234567890123 \nISBN have 13 digits\n");
+        System.out.print("Enter ISBN: ");
         ISBN = userInput();
         boolean a = isISBNValid(ISBN);
         if (a) {
             double key = Double.parseDouble(ISBN);
-            System.out.println("Enter Book Name: ");
+            System.out.print("Enter Book Name: ");
             bnm = userInput();
-            System.out.println("Enter Author First Name: ");
+            System.out.print("Enter Author First Name: ");
             fnm = userInput();
-            System.out.println("Enter Author Surname: ");
+            System.out.print("Enter Author Surname: ");
             snm = userInput();
-            tree.addNode(key, bnm, fnm, snm);
+            a = tree.addNode(key, bnm, fnm, snm);
             return a;
         } else {
-            System.out.println("Invaild ISBN !");
+            System.out.println("\nInvaild ISBN !");
             return a;
         }
     }
 
     public boolean removeBookByISBN() {
         String ISBN;
-        System.out.println("Enter ISBN: ");
+        System.out.print("Enter ISBN: ");
         ISBN = userInput();
         boolean a = isISBNValid(ISBN);
         if (a) {
-            return a;
+            double key = Double.parseDouble(ISBN);
+            a = tree.deleteByKey(key);
+            if (a) {
+                System.out.println("Book with ISBN:" + ISBN + " is deleted");
+                return a;
+            } else {
+                System.out.println("\nInvaild ISBN !");
+                return a;
+            }
         } else {
-            System.out.println("Invaild ISBN !");
+            System.out.println("\nInvaild ISBN !");
             return a;
         }
     }
 
     public boolean removeBookByName() {
+        boolean a = false;
+        String book;
+        System.out.print("Enter Book name: ");
+        book = userInput();
+        a = tree.deteleByBookName(book);
+        if (a) {
+            System.out.println("Book with name:" + book + " is deleted");
+            System.out.println("");
+            return true;
+        } else {
+            System.out.println("\nInvaild Book name !");
+            return false;
+        }
 
-        return false;
     }
 
     public boolean searchBookByISBN() {
         String ISBN;
-        String bnm;//book name
-        String fnm;// author's first name
-        String snm;// Author's Surname
-        System.out.println("Enter ISBN: ");
+        System.out.print("Enter ISBN: ");
         ISBN = userInput();
         boolean a = isISBNValid(ISBN);
         if (a) {
             double key = Double.parseDouble(ISBN);
-            System.out.println("Enter Book Name: ");
-            bnm = userInput();
-            System.out.println("Enter Author First Name: ");
-            fnm = userInput();
-            System.out.println("Enter Author Surname :");
-            snm = userInput();
-            return tree.addNode(key, bnm, fnm, snm)
+            Node node = tree.searchByKey(key);
+            if (node == null) {
+                System.out.println("Can found Book with this ISBN");
+                return false;
+            } else {
+                System.out.println("\nISBN: " + doubleToStringOFKey(node.key));
+                System.out.println("Book: " + node.b_name);
+                System.out.println("Author's First name: " + node.f_name);
+                System.out.println("Author's Surname: " + node.s_name);
+                return true;
+            }
         } else {
-            System.out.println("Invaild ISBN !");
+            System.out.println("\nInvaild ISBN !");
             return a;
         }
     }
 
     public boolean searchBookByName() {
-        return false;
+        String book;
+        System.out.print("Enter Book name: ");
+        book = userInput();
+
+        Node node = tree.searchByBookName(book);
+        if (node == null) {
+            System.out.println("Can found Book with this ISBN");
+            return false;
+        } else {
+            System.out.println("\nISBN: " + doubleToStringOFKey(node.key));
+            System.out.println("Book: " + node.b_name);
+            System.out.println("Author's First name: " + node.f_name);
+            System.out.println("Author's Surname: " + node.s_name);
+            return true;
+        }
     }
 
     public void start() {
         dataload();
         boolean state = true;
         while (state) {
+            userInput();
             System.out.println("1. Add a Book");
             System.out.println("2. Remove Book by ISBN");
             System.out.println("3. Remove Book by name of the book");
@@ -116,7 +152,7 @@ public class Application {
             System.out.println("6. Exit");
             System.out.print("\n Enter Option Number :");
             String userInput = userInput();
-            System.out.println("\n\n");
+            System.out.println("\n");
             try {
                 boolean op = false;
                 int i = Integer.parseInt(userInput);
@@ -137,6 +173,7 @@ public class Application {
                         op = searchBookByName();
                         break;
                     case 6:
+                        op = true;
                         state = false;
                         break;
                     default:
@@ -145,8 +182,10 @@ public class Application {
                 }
                 if (op) {
                     System.out.println("Operation Successful");
+                    System.out.println("\n\n");
                 } else {
                     System.out.println("Operation Faild");
+                    System.out.println("\n\n");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("Invalid Input");
@@ -155,8 +194,25 @@ public class Application {
     }
 
     private boolean isISBNValid(String userInput) {
-        return false;
+        try {
+            Double key = Double.parseDouble(userInput);
+            if (userInput.length() != 13) {
+                throw new NumberFormatException();
+            }
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
 
+    }
+
+    private String doubleToStringOFKey(double key) {
+        String n = String.valueOf(key);
+        n = n.substring(0, 14);
+        n = n.replace('.', ':');
+        String[] s = n.split(":");
+        n = s[0] + s[1];
+        return n;
     }
 
     public void dataload() {
@@ -187,4 +243,5 @@ public class Application {
         app.start();
 
     }
+
 }
