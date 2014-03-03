@@ -14,45 +14,45 @@ public class BinarySearchTree {
      * @param b_name Name of the Book
      * @param f_name Author's First name
      * @param s_name Author's Surname
+     * @return
      */
-    public boolean addNode(double key, String b_name, String f_name, String s_name){
-            
-            Node nodeToAdd = new Node(key, b_name, f_name, s_name);
-            //check whether the root is null
-             if (root == null) {
+    public boolean addNode(double key, String b_name, String f_name, String s_name) {
+
+        Node nodeToAdd = new Node(key, b_name, f_name, s_name);
+        //check whether the root is null
+        if (root == null) {
             root = nodeToAdd;
         } else {
             if (searchByKey(key) == null) {
-                    Node tempNode = root;
-                    Node parent;
-                                
+                Node tempNode = root;
+                Node parent;
 
-                    while (true) {
-                        parent = tempNode;
-                        if (key < tempNode.key) {
+                while (true) {
+                    parent = tempNode;
+                    if (key < tempNode.key) {
 
-                            tempNode = tempNode.leftChild;
+                        tempNode = tempNode.leftChild;
 
-                            if (tempNode == null) {
+                        if (tempNode == null) {
 
-                                parent.leftChild = nodeToAdd;
-                                return true;
-                            }
-                        } else {
-                            tempNode = tempNode.rightChild;
+                            parent.leftChild = nodeToAdd;
+                            return true;
+                        }
+                    } else {
+                        tempNode = tempNode.rightChild;
 
-                            if (tempNode == null) {
+                        if (tempNode == null) {
 
-                                parent.rightChild = nodeToAdd;
-                                return true;
-                            }
+                            parent.rightChild = nodeToAdd;
+                            return true;
                         }
                     }
-                }else {
+                }
+            } else {
                 return false;
             }
-            }
-        
+        }
+
         return false;
     }
 
@@ -157,7 +157,7 @@ public class BinarySearchTree {
 
     /**
      *
-     * @param bname 
+     * @param bname
      * @return ture or false
      */
     public boolean deteleByBookName(String bname) {
