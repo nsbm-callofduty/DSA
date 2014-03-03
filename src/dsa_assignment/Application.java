@@ -80,10 +80,21 @@ public class Application {
 
     public boolean searchBookByISBN() {
         String ISBN;
+        String bnm;//book name
+        String fnm;// author's first name
+        String snm;// Author's Surname
         System.out.println("Enter ISBN: ");
         ISBN = userInput();
         boolean a = isISBNValid(ISBN);
         if (a) {
+            double key = Double.parseDouble(ISBN);
+            System.out.println("Enter Book Name: ");
+            bnm = userInput();
+            System.out.println("Enter Author First Name: ");
+            fnm = userInput();
+            System.out.println("Enter Author Surname :");
+            snm = userInput();
+            tree.addNode(key, bnm, fnm, snm);
             return a;
         } else {
             System.out.println("Invaild ISBN !");
