@@ -32,8 +32,7 @@ public class Application {
 
     /**
      *
-     * @return true when operation successful 
-     * false when operation failed
+     * @return true when operation successful false when operation failed
      */
     public boolean addBook() {
         String ISBN;
@@ -94,8 +93,7 @@ public class Application {
             fnm = userInput();
             System.out.println("Enter Author Surname :");
             snm = userInput();
-            tree.addNode(key, bnm, fnm, snm);
-            return a;
+            return tree.addNode(key, bnm, fnm, snm)
         } else {
             System.out.println("Invaild ISBN !");
             return a;

@@ -26,23 +26,17 @@ public class BinarySearchTree {
             if (searchByKey(key) == null) {
                 Node tempNode = root;
                 Node parent;
-
                 while (true) {
                     parent = tempNode;
                     if (key < tempNode.key) {
-
                         tempNode = tempNode.leftChild;
-
                         if (tempNode == null) {
-
                             parent.leftChild = nodeToAdd;
                             return true;
                         }
                     } else {
                         tempNode = tempNode.rightChild;
-
                         if (tempNode == null) {
-
                             parent.rightChild = nodeToAdd;
                             return true;
                         }
@@ -52,7 +46,6 @@ public class BinarySearchTree {
                 return false;
             }
         }
-
         return false;
     }
 
