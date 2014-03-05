@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.accessibility.AccessibleRole;
 
 /**
  *
@@ -85,6 +86,7 @@ public class Application {
         String book;
         System.out.print("Enter Book name: ");
         book = userInput();
+
         a = tree.deteleByBookName(book);
         if (a) {
             System.out.println("Book with name:" + book + " is deleted");
@@ -125,10 +127,10 @@ public class Application {
         String book;
         System.out.print("Enter Book name: ");
         book = userInput();
-
-        Node node = tree.searchByBookName(book);
+        tree.searchByBookName(book);
+        Node node = tree.s;
         if (node == null) {
-            System.out.println("Can found Book with this ISBN");
+            System.out.println("Can found Book with this Book Name");
             return false;
         } else {
             System.out.println("\nISBN: " + doubleToStringOFKey(node.key));

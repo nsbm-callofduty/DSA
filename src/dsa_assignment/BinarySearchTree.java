@@ -3,6 +3,8 @@ package dsa_assignment;
 public class BinarySearchTree {
 
     Node root;
+    BinarySearchTree tree;
+    Node s;
 
     /**
      * This method is used to add new node in to the tree.If the tree have No
@@ -154,7 +156,8 @@ public class BinarySearchTree {
      * @return ture or false
      */
     public boolean deteleByBookName(String bname) {
-        Node searchByBookName = searchByBookName(bname);
+        searchByBookName(bname);
+        Node searchByBookName = this.s;
         if (searchByBookName != null) {
             return deleteByKey(searchByBookName.key);
         } else {
@@ -231,14 +234,16 @@ public class BinarySearchTree {
      * wise it return NULL
      */
     private Node search(Node focusNode, String nm) {
-        Node s = null;
+
+        Node temp = null;
         if (focusNode != null) {
             if (nm.toLowerCase().matches(focusNode.b_name.toLowerCase())) {
+                this.s = focusNode;
                 return focusNode;
             }
-            s = search(focusNode.leftChild, nm);
-            s = search(focusNode.rightChild, nm);
+            temp = search(focusNode.leftChild, nm);
+            temp = search(focusNode.rightChild, nm);
         }
-        return s;
+        return temp;
     }
 }
